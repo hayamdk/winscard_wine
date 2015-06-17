@@ -143,14 +143,14 @@ LONG WINAPI SCardListReadersW(SCARDCONTEXT hContext, LPCWSTR mszGroups, LPWSTR m
         }
         *pcchReaders = len;
     }
-    printf("SCardListReadersW(%p): return = %lx\n", _SCardListReaders, ret);
+    dbg("SCardListReadersW(%p): return = %lx\n", _SCardListReaders, ret);
     return ret;
 }
 
 LONG WINAPI SCardConnectA(SCARDCONTEXT hContext, LPCSTR szReader, DWORD dwShareMode, DWORD dwPreferredProtocols, LPSCARDHANDLE phCard, LPDWORD pdwActiveProtocol)
 {
     LONG ret = _SCardConnect(hContext, szReader, dwShareMode, dwPreferredProtocols, phCard, pdwActiveProtocol);
-    printf("SCardConnectA(%p) *phCard = %lx return = %lx\n", _SCardConnect, *phCard, ret);
+    dbg("SCardConnectA(%p) *phCard = %lx return = %lx\n", _SCardConnect, *phCard, ret);
     return ret;
 }
 
@@ -159,7 +159,7 @@ LONG WINAPI SCardConnectW(SCARDCONTEXT hContext, LPCWSTR szReader, DWORD dwShare
     char szReaderA[256];
     wchar2char(szReaderA, szReader, 256);
     LONG ret = _SCardConnect(hContext, szReaderA, dwShareMode, dwPreferredProtocols, phCard, pdwActiveProtocol);
-    printf("SCardConnectW(%p) *phCard = %lx return = %lx\n", _SCardConnect, *phCard, ret);
+    dbg("SCardConnectW(%p) *phCard = %lx return = %lx\n", _SCardConnect, *phCard, ret);
     return ret;
 }
 

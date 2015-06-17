@@ -7,7 +7,7 @@ CC := gcc
 
 ARCH = -m32
 #ARCH =
-CFLAGS = $(ARCH) -Wall -fPIC -O2 -I /usr/include/PCSC
+CFLAGS = $(ARCH) -Wall -fPIC -fshort-wchar -O2 -I /usr/include/PCSC
 LDFLAGS = $(ARCH) -shared -ldl
 
 $(PROGRAM): $(OBJS) $(SPECS)
